@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import socketIOClient from 'socket.io-client';
 import fnv1a from '@sindresorhus/fnv1a';
 
@@ -23,33 +23,29 @@ const sendQueryable = () => {
   });
 };
 
-function App() {
-  const { properties, setProperty, addActions } = usePandaBridge({});
+const waitForSocket = (properties, uniqueId) => {
   const {
-    [PandaBridge.UNIQUE_ID]: unitId,
     [PandaBridge.PANDASUITE_HOST_WITH_SCHEME]: host,
   } = properties || {};
 
-  useEffect(() => {
-    let socket;
+  const socket = socketIOClient(host, { path: '/mo/socket.io' });
 
-    if (unitId && host) {
-      socket = socketIOClient(host, { path: '/mo/socket.io' });
+  socket.on(fnv1a(uniqueId).toString(16), (data) => {
+    const { name, body = {} } = data || {};
 
-      socket.on(fnv1a(unitId).toString(16), (data) => {
-        const { name, body = {} } = data || {};
-
-        if (name) {
-          if (name === 'onSuccess') {
-            customer = body;
-            sendQueryable();
-          }
-          PandaBridge.send(name, [body]);
-        }
-      });
+    if (name) {
+      if (name === 'onSuccess') {
+        customer = body;
+        sendQueryable();
+      }
+      PandaBridge.send(name, [body]);
+      socket.disconnect();
     }
-    return () => socket && socket.disconnect();
-  }, [unitId, host]);
+  });
+};
+
+function App() {
+  const { properties, setProperty, addActions } = usePandaBridge({});
 
   if (properties === undefined) {
     return null;
@@ -73,7 +69,10 @@ function App() {
       sendQueryable();
     },
     purchase: (params) => {
-      const checkoutUrl = checkoutPricesUrl(properties, prices, params);
+      const uniqueId = Math.random().toString(36).substring(2);
+      const checkoutUrl = checkoutPricesUrl(uniqueId, properties, prices, params);
+
+      waitForSocket(properties, uniqueId);
 
       if (checkoutUrl) {
         PandaBridge.openUrl(checkoutUrl);

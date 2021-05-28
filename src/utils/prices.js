@@ -40,7 +40,7 @@ export const updateAllPrices = (prices, quantity, type) => {
   return prices;
 };
 
-export const checkoutPricesUrl = (properties = {}, prices, params) => {
+export const checkoutPricesUrl = (uniqueId, properties = {}, prices, params) => {
   const {
     [PandaBridge.UNIQUE_ID]: unitId,
     [PandaBridge.PANDASUITE_HOST_WITH_SCHEME]: host,
@@ -55,7 +55,7 @@ export const checkoutPricesUrl = (properties = {}, prices, params) => {
       return null;
     })));
 
-    let url = `${host}mo/stripe/${unitId}/checkout?mode=${mode}&line_items=${encodeURIComponent(items)}`;
+    let url = `${host}mo/stripe/${unitId}/checkout/${uniqueId}?mode=${mode}&line_items=${encodeURIComponent(items)}`;
 
     each(['customer', 'customer_email', 'submit_type', 'billing_address_collection'], (param) => {
       if (params[param]) {
