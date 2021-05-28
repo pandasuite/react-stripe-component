@@ -1,3 +1,11 @@
 {
-  "request.button.title": "Tester la requête"
+  "request.button.title": "Obtenir les produits",
+  "request.error.generic": "Une erreur est survenue.",
+  "request.error.401": "Clé d'API non valide. Vous devez sauvegarder votre projet chaque fois que vous changez de clés",
+  "response.column.product": "Produit",
+  "response.column.price": "Prix",
+  "response.column.id": "Id",
+  "format.price.every": "tous les",
+  "format.price.month": "mois",
+  "format.price.year": "an"
 }

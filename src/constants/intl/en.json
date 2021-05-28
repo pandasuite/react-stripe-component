@@ -1,3 +1,11 @@
 {
-  "request.button.title": "Test Request"
+  "request.button.title": "Get the products",
+  "request.error.generic": "An error has occurred.",
+  "request.error.401": "Invalid API Key provided. You must save your project each time you change the keys.",
+  "response.column.product": "Product",
+  "response.column.price": "Price",
+  "response.column.id": "Id",
+  "format.price.every": "every",
+  "format.price.month": "month",
+  "format.price.year": "year"
 }

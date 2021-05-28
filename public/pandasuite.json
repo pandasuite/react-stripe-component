@@ -1,99 +1,257 @@
 {
-    "version": "2.0.0",
-    "main": "",
-  
-    "system": {
-      "localization": false,
-      "actions": [
+  "version": "2.0.0",
+  "main": "",
+
+  "system": {
+    "localization": false,
+    "markers": false
+  },
+
+  "properties": [
+    {
+      "id": "apiKey",
+      "name": "Publishable key\t",
+      "locale_name": {
+        "fr_FR": "Clé publiable\t"
+      },
+      "type": "String"
+    },
+    {
+      "id": "secretKey",
+      "name": "Secret key\t",
+      "locale_name": {
+        "fr_FR": "Clé secrete\t"
+      },
+      "type": "String",
+      "secret": true
+    },
+    {
+      "id": "subscription",
+      "name": "Subscription Mode",
+      "locale_name": {
+        "fr_FR": "Mode abonnement"
+      },
+      "type": "Boolean",
+      "value": false,
+      "style": "switch"
+    },
+    {
+      "id": "data",
+      "type": "String",
+      "value": "[]",
+      "hidden": true
+    }
+  ],
+
+  "events": [
+    {
+      "id": "onSuccess",
+      "name": "Payment complete",
+      "locale_name": {
+        "fr_FR": "Paiement effectué"
+      }
+    },
+    {
+      "id": "onCancel",
+      "name": "Payment canceled",
+      "locale_name": {
+        "fr_FR": "Paiement annulé"
+      }
+    },
+    {
+      "id": "onError",
+      "name": "Payment failed",
+      "locale_name": {
+        "fr_FR": "Paiement échoué"
+      }
+    }
+  ],
+
+  "actions": [
+    {
+      "id": "purchase",
+      "name": "Purchase",
+      "locale_name": {
+        "fr_FR": "Acheter"
+      },
+      "params": [
         {
-          "id": "toMarker",
-          "name": "Change Image",
+          "id": "customer",
+          "name": "ID of an existing Customer",
           "locale_name": {
-            "fr_FR": "Change Image"
+            "fr_FR": "ID d'un client existant"
           },
-          "params": [
-            { "id": "useless", "name": "Useless", "locale_name": {"fr_FR": "Inutile"}, "type": "Boolean" }
-          ]
-        }
-      ],
-      "events": [
+          "type": "String",
+          "bindable": true,
+          "hidden": true
+        },
         {
-          "id": "triggerMarker",
-          "name": "Image",
+          "id": "customer_email",
+          "name": "Customer Email Address",
           "locale_name": {
-            "fr_FR": "Image"
-          }
-        }
-      ],
-      "markers": [
+            "fr_FR": "Adresse e-mail du client"
+          },
+          "type": "String",
+          "bindable": true,
+          "hidden": true
+        },
         {
-          "params": [
-            { "id": "src", "name": "Source", "locale_name": {"fr_FR": "Source"}, "type": "String" }
+          "id": "submit_type",
+          "name": "Submit type",
+          "locale_name": {
+            "fr_FR": "Type de formulaire"
+          },
+          "type": "Dropdown",
+          "value": "auto",
+          "items": [
+            {
+              "id": "auto",
+              "name": "Auto",
+              "locale_name": {
+                "fr_FR": "Auto"
+              }    
+            },
+            {
+              "id": "pay",
+              "name": "Pay",
+              "locale_name": {
+                "fr_FR": "Payer"
+              }    
+            },
+            {
+              "id": "book",
+              "name": "Book",
+              "locale_name": {
+                "fr_FR": "Réserver"
+              }    
+            },
+            {
+              "id": "donate",
+              "name": "Donate",
+              "locale_name": {
+                "fr_FR": "Faire un don"
+              }    
+            }
+          ],
+          "hidden": "properties.subscription.value"
+        },
+        {
+          "id": "billing_address_collection",
+          "name": "Billing address collection",
+          "locale_name": {
+            "fr_FR": "Collecte des adresses de facturation"
+          },
+          "type": "Dropdown",
+          "value": "auto",
+          "items": [
+            {
+              "id": "auto",
+              "name": "When necessary",
+              "locale_name": {
+                "fr_FR": "Lorsque nécessaire"
+              }    
+            },
+            {
+              "id": "required",
+              "name": "Always",
+              "locale_name": {
+                "fr_FR": "Toujours"
+              }    
+            }
           ]
         }
       ]
     },
-
-    "properties": [
-      {
-        "id": "searchTerm",
-        "name": "Search Term",
-        "locale_name": {
-          "fr_FR": "Terme de recherche"
+    {
+      "id": "set",
+      "name": "Set product",
+      "locale_name": {
+        "fr_FR": "Définir produit"
+      },
+      "params": [
+        {
+          "id": "price",
+          "name": "Price ID\t\t",
+          "locale_name": {
+            "fr_FR": "ID du prix\t\t"
+          },
+          "type": "String",
+          "bindable": true
         },
-        "type": "String",
-        "value": "panda"
-      }
-    ],
-  
-    "events": [
-      {
-        "id": "imageChanged",
-        "name": "Image Changed",
-        "locale_name": {
-          "fr_FR": "Image Changée"
+        {
+          "id": "quantity",
+          "name": "Quantity\t\t",
+          "locale_name": {
+            "fr_FR": "Quantité\t\t"
+          },
+          "type": "Integer",
+          "bindable": true,
+          "value": 1
         }
-      }
-    ],
-  
-    "actions": [
-      {
-        "id": "changeColor",
-        "name": "Change Color",
-        "params": [
-          {
-            "id": "backgroundColor",
-            "name": "Background Color",
-            "locale_name": {
-              "fr_FR": "Couleur de fond"
-            },
-            "type": "String",
-            "value": "#FFFFFF"
-          }
-        ]
-      }
-    ],
-
-    "synchronization": [
-      {
-        "id": "synchroImages",
-        "name": "Synchronize images",
-        "locale_name": {
-          "fr_FR": "Synchroniser images"
-        }
-      }
-    ],
-  
-    "resources": [
-      {
-        "id": "my_image.png",
-        "name": "Example image",
-        "locale_name": {
-          "fr_FR": "Image exemple"
+      ]
+    },
+    {
+      "id": "increment",
+      "name": "Increment product",
+      "locale_name": {
+        "fr_FR": "Incrémenter produit"
+      },
+      "params": [
+        {
+          "id": "price",
+          "name": "Price ID\t\t",
+          "locale_name": {
+            "fr_FR": "ID du prix\t\t"
+          },
+          "type": "String",
+          "bindable": true
         },
-        "type": "Image",
-        "localization": false
+        {
+          "id": "quantity",
+          "name": "Quantity\t\t",
+          "locale_name": {
+            "fr_FR": "Quantité\t\t"
+          },
+          "type": "Integer",
+          "bindable": true,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "decrement",
+      "name": "Decrement product",
+      "locale_name": {
+        "fr_FR": "Décrémenter produit"
+      },
+      "params": [
+        {
+          "id": "price",
+          "name": "Price ID\t\t",
+          "locale_name": {
+            "fr_FR": "ID du prix\t\t"
+          },
+          "type": "String",
+          "bindable": true
+        },
+        {
+          "id": "quantity",
+          "name": "Quantity\t\t",
+          "locale_name": {
+            "fr_FR": "Quantité\t\t"
+          },
+          "type": "Integer",
+          "bindable": true,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "removeAll",
+      "name": "Remove all products",
+      "locale_name": {
+        "fr_FR": "Retirer tous les produits"
       }
-    ]
+    }
+  ]
 }
-  
