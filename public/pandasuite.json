@@ -252,6 +252,24 @@
       "locale_name": {
         "fr_FR": "Retirer tous les produits"
       }
+    },
+    {
+      "id": "open",
+      "name": "Open customer portal",
+      "locale_name": {
+        "fr_FR": "Ouvrir le portail client"
+      },
+      "params": [
+        {
+          "id": "customer",
+          "name": "ID of an existing Customer",
+          "locale_name": {
+            "fr_FR": "ID d'un client existant"
+          },
+          "type": "String",
+          "bindable": true
+        }
+      ]
     }
   ]
 }

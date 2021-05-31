@@ -7,7 +7,9 @@ import { usePandaBridge } from 'pandasuite-bridge-react';
 
 import Stripe from './components/Stripe';
 import safeParse from './utils/safeParse';
-import { checkoutPricesUrl, updateAllPrices, updateByPriceId } from './utils/prices';
+import {
+  checkoutPricesUrl, customerPortalUrl, updateAllPrices, updateByPriceId,
+} from './utils/prices';
 
 require('isomorphic-fetch');
 
@@ -72,10 +74,16 @@ function App() {
       const uniqueId = Math.random().toString(36).substring(2);
       const checkoutUrl = checkoutPricesUrl(uniqueId, properties, prices, params);
 
-      waitForSocket(properties, uniqueId);
-
       if (checkoutUrl) {
+        waitForSocket(properties, uniqueId);
         PandaBridge.openUrl(checkoutUrl);
+      }
+    },
+    open: (params) => {
+      const customerlUrl = customerPortalUrl(properties, params);
+
+      if (customerlUrl) {
+        PandaBridge.openUrl(customerlUrl);
       }
     },
   }, true);

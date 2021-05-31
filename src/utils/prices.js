@@ -67,3 +67,16 @@ export const checkoutPricesUrl = (uniqueId, properties = {}, prices, params) => 
   }
   return null;
 };
+
+export const customerPortalUrl = (properties = {}, params) => {
+  const {
+    [PandaBridge.UNIQUE_ID]: unitId,
+    [PandaBridge.PANDASUITE_HOST_WITH_SCHEME]: host,
+  } = properties;
+  const { customer } = params;
+
+  if (customer) {
+    return `${host}mo/stripe/${unitId}/customer-portal/${customer}`;
+  }
+  return null;
+};
