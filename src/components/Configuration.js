@@ -46,12 +46,12 @@ function Configuration(props) {
         setProperty('data', body);
         setState({ loading: false });
       } else if (response.status === '401') {
-        setState({ loading: false, error: intl.formatMessage({ id: 'request.error.generic' }) });
-      } else {
         setState({ loading: false, error: intl.formatMessage({ id: 'request.error.401' }) });
+      } else {
+        setState({ loading: false, error: intl.formatMessage({ id: 'request.error.generic' }) });
       }
     }).catch(() => {
-      setState({ loading: false, error: intl.formatMessage({ id: 'request.button.title' }) });
+      setState({ loading: false, error: intl.formatMessage({ id: 'request.error.generic' }) });
     });
   };
 
