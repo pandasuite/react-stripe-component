@@ -10,30 +10,29 @@
   "properties": [
     {
       "id": "apiKey",
-      "name": "Publishable key\t",
+      "name": "Publishable key",
       "locale_name": {
-        "fr_FR": "Clé publiable\t"
+        "fr_FR": "Clé publique"
       },
       "type": "String"
     },
     {
       "id": "secretKey",
-      "name": "Secret key\t",
+      "name": "Secret key",
       "locale_name": {
-        "fr_FR": "Clé secrete\t"
+        "fr_FR": "Clé secrète"
       },
       "type": "String",
       "secret": true
     },
     {
       "id": "subscription",
-      "name": "Subscription Mode",
+      "name": "Subscription",
       "locale_name": {
-        "fr_FR": "Mode abonnement"
+        "fr_FR": "Abonnement"
       },
       "type": "Boolean",
       "value": false,
-      "style": "switch"
     },
     {
       "id": "data",
@@ -171,18 +170,18 @@
       "params": [
         {
           "id": "price",
-          "name": "Price ID\t\t",
+          "name": "Price ID",
           "locale_name": {
-            "fr_FR": "ID du prix\t\t"
+            "fr_FR": "ID du prix"
           },
           "type": "String",
           "bindable": true
         },
         {
           "id": "quantity",
-          "name": "Quantity\t\t",
+          "name": "Quantity",
           "locale_name": {
-            "fr_FR": "Quantité\t\t"
+            "fr_FR": "Quantité"
           },
           "type": "Integer",
           "bindable": true,
@@ -199,18 +198,18 @@
       "params": [
         {
           "id": "price",
-          "name": "Price ID\t\t",
+          "name": "Price ID",
           "locale_name": {
-            "fr_FR": "ID du prix\t\t"
+            "fr_FR": "ID du prix"
           },
           "type": "String",
           "bindable": true
         },
         {
           "id": "quantity",
-          "name": "Quantity\t\t",
+          "name": "Quantity",
           "locale_name": {
-            "fr_FR": "Quantité\t\t"
+            "fr_FR": "Quantité"
           },
           "type": "Integer",
           "bindable": true,
@@ -227,18 +226,18 @@
       "params": [
         {
           "id": "price",
-          "name": "Price ID\t\t",
+          "name": "Price ID",
           "locale_name": {
-            "fr_FR": "ID du prix\t\t"
+            "fr_FR": "ID du prix"
           },
           "type": "String",
           "bindable": true
         },
         {
           "id": "quantity",
-          "name": "Quantity\t\t",
+          "name": "Quantity",
           "locale_name": {
-            "fr_FR": "Quantité\t\t"
+            "fr_FR": "Quantité"
           },
           "type": "Integer",
           "bindable": true,
