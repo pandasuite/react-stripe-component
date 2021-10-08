@@ -8771,20 +8771,20 @@ pako@~1.0.5:
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.11.tgz#6c9599d340d54dfd3946380252a35705a6b992bf"
   integrity sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==
 
-pandasuite-bridge-react@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/pandasuite-bridge-react/-/pandasuite-bridge-react-2.2.1.tgz#a0372c8386d1ed0bb801a823b1bbd813934e52f0"
-  integrity sha512-xy8odivsq4O/Ahgsydf+VwueOtnWx9zeWw3lLUSjkrvH3QotFz1TtsyYBJMjQbYDVr9Ur3bZ7yWawkI103O03Q==
+pandasuite-bridge-react@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/pandasuite-bridge-react/-/pandasuite-bridge-react-2.3.0.tgz#32591f6504ca84cc7a5f6560eb4e6934fe5d2728"
+  integrity sha512-Uq/qAjfHE1JrCoJdkU7/VkQ+Z7pcAZR0s7OD/BinmlAWv6z1ZT4FqhyNkGdhuf8fr/ZS2JubQ53Vg31HxyznfA==
   dependencies:
     html2canvas "^1.0.0-rc.5"
     lodash "^4.17.15"
-    pandasuite-bridge "^4.3.2"
+    pandasuite-bridge "^4.3.3"
     recoil "^0.3.1"
 
-pandasuite-bridge@^4.3.2:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/pandasuite-bridge/-/pandasuite-bridge-4.3.2.tgz#56c107d9db0adb19337d996ca8764a70f40b76b0"
-  integrity sha512-0diGBHPyVSZmUEdmG7O1iLtUZ0u+Sfp9MGSAWSmaMaSVv0aoCPMRXpbT5NRWUZSX0UmS5ILDfgOeyUqXOTmu9Q==
+pandasuite-bridge@^4.3.3:
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/pandasuite-bridge/-/pandasuite-bridge-4.3.3.tgz#9ccdac9cc3748d75f6e3c1224b9dad66c3ae70cc"
+  integrity sha512-Th5rFmRuLtEdVYMERUEz9GoJ3n+/Ns8yHmlLh/qS2tHF79STNCGF/0Nk6iYiDyXasJ6o0feJHEy5V2+2oPFKHA==
 
 parallel-transform@^1.1.0:
   version "1.2.0"
