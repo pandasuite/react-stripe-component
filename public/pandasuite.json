@@ -32,7 +32,7 @@
         "fr_FR": "Abonnement"
       },
       "type": "Boolean",
-      "value": false,
+      "value": false
     },
     {
       "id": "data",
@@ -270,5 +270,21 @@
         }
       ]
     }
-  ]
+  ],
+
+  "queryable": {
+    "prices": [
+      {
+        "product": {
+          "name": "",
+          "images": []
+        },
+        "quantity": 0
+      }
+    ],
+    "customer": {
+      "id": "",
+      "email": ""
+    }
+  }
 }
