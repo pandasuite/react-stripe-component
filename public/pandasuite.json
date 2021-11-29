@@ -14,7 +14,8 @@
       "locale_name": {
         "fr_FR": "Clé publique"
       },
-      "type": "String"
+      "type": "String",
+      "required": true
     },
     {
       "id": "secretKey",
@@ -23,7 +24,8 @@
         "fr_FR": "Clé secrète"
       },
       "type": "String",
-      "secret": true
+      "secret": true,
+      "required": true
     },
     {
       "id": "subscription",
