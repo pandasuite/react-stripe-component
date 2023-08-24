@@ -55,7 +55,7 @@ export const checkoutPricesUrl = (uniqueId, properties = {}, prices, params) => 
       return null;
     })));
 
-    let url = `${host}mo/stripe/${unitId}/checkout/${uniqueId}?mode=${mode}&line_items=${encodeURIComponent(items)}`;
+    let url = `${host}mo/stripe/${unitId}/checkout/${uniqueId}?mode=${mode}&customer_creation=always&line_items=${encodeURIComponent(items)}`;
 
     each(['customer', 'customer_email', 'submit_type', 'billing_address_collection'], (param) => {
       if (params[param]) {
