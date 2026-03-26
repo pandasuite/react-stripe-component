@@ -1,12 +1,18 @@
 {
+  "meta": {
+    "stype": "stripe",
+    "componentURL": "https://github.com/pandasuite/react-stripe-component/",
+    "description": "Processes web payments using Stripe Checkout. Triggers events on payment completion, cancellation, or failure.",
+    "locale_description": {
+      "fr_FR": "Traite les paiements web via Stripe Checkout. Déclenche des événements à la complétion, l'annulation ou l'échec du paiement."
+    }
+  },
   "version": "2.0.0",
   "main": "",
-
   "system": {
     "localization": false,
     "markers": false
   },
-
   "properties": [
     {
       "id": "apiKey",
@@ -15,7 +21,11 @@
         "fr_FR": "Clé publique"
       },
       "type": "String",
-      "required": true
+      "required": true,
+      "description": "Stripe publishable API key.",
+      "locale_description": {
+        "fr_FR": "Clé API publique Stripe."
+      }
     },
     {
       "id": "secretKey",
@@ -25,7 +35,11 @@
       },
       "type": "String",
       "secret": true,
-      "required": true
+      "required": true,
+      "description": "Stripe secret API key (used server-side via proxy).",
+      "locale_description": {
+        "fr_FR": "Clé API secrète Stripe (utilisée côté serveur via proxy)."
+      }
     },
     {
       "id": "subscription",
@@ -34,22 +48,33 @@
         "fr_FR": "Abonnement"
       },
       "type": "Boolean",
-      "value": false
+      "value": false,
+      "description": "Enable subscription mode instead of one-time payments.",
+      "locale_description": {
+        "fr_FR": "Activer le mode abonnement au lieu des paiements uniques."
+      }
     },
     {
       "id": "data",
       "type": "String",
       "value": "[]",
-      "hidden": true
+      "hidden": true,
+      "description": "Internal property storing cart data. Hidden.",
+      "locale_description": {
+        "fr_FR": "Propriété interne stockant les données du panier. Masquée."
+      }
     }
   ],
-
   "events": [
     {
       "id": "onSuccess",
       "name": "Payment complete",
       "locale_name": {
         "fr_FR": "Paiement effectué"
+      },
+      "description": "Fires when a payment is completed successfully.",
+      "locale_description": {
+        "fr_FR": "Se déclenche quand un paiement est complété avec succès."
       }
     },
     {
@@ -57,6 +82,10 @@
       "name": "Payment canceled",
       "locale_name": {
         "fr_FR": "Paiement annulé"
+      },
+      "description": "Fires when the user cancels the payment.",
+      "locale_description": {
+        "fr_FR": "Se déclenche quand l'utilisateur annule le paiement."
       }
     },
     {
@@ -64,10 +93,13 @@
       "name": "Payment failed",
       "locale_name": {
         "fr_FR": "Paiement échoué"
+      },
+      "description": "Fires when a payment fails.",
+      "locale_description": {
+        "fr_FR": "Se déclenche quand un paiement échoue."
       }
     }
   ],
-
   "actions": [
     {
       "id": "purchase",
@@ -84,7 +116,11 @@
           },
           "type": "String",
           "bindable": true,
-          "hidden": true
+          "hidden": true,
+          "description": "Stripe customer ID. Internal parameter.",
+          "locale_description": {
+            "fr_FR": "ID client Stripe. Paramètre interne."
+          }
         },
         {
           "id": "customer_email",
@@ -94,7 +130,11 @@
           },
           "type": "String",
           "bindable": true,
-          "hidden": true
+          "hidden": true,
+          "description": "Customer email for the payment receipt. Internal parameter.",
+          "locale_description": {
+            "fr_FR": "Email du client pour le reçu de paiement. Paramètre interne."
+          }
         },
         {
           "id": "submit_type",
@@ -110,31 +150,35 @@
               "name": "Auto",
               "locale_name": {
                 "fr_FR": "Auto"
-              }    
+              }
             },
             {
               "id": "pay",
               "name": "Pay",
               "locale_name": {
                 "fr_FR": "Payer"
-              }    
+              }
             },
             {
               "id": "book",
               "name": "Book",
               "locale_name": {
                 "fr_FR": "Réserver"
-              }    
+              }
             },
             {
               "id": "donate",
               "name": "Donate",
               "locale_name": {
                 "fr_FR": "Faire un don"
-              }    
+              }
             }
           ],
-          "hidden": "properties.subscription.value"
+          "hidden": "properties.subscription.value",
+          "description": "Checkout button label type (pay, donate, book, auto). Active when subscription mode is disabled.",
+          "locale_description": {
+            "fr_FR": "Type de libellé du bouton de paiement (payer, donner, réserver, auto). Actif quand le mode abonnement est désactivé."
+          }
         },
         {
           "id": "billing_address_collection",
@@ -150,18 +194,26 @@
               "name": "When necessary",
               "locale_name": {
                 "fr_FR": "Lorsque nécessaire"
-              }    
+              }
             },
             {
               "id": "required",
               "name": "Always",
               "locale_name": {
                 "fr_FR": "Toujours"
-              }    
+              }
             }
-          ]
+          ],
+          "description": "Whether to collect billing address (auto or required).",
+          "locale_description": {
+            "fr_FR": "Collecte de l'adresse de facturation (auto ou requis)."
+          }
         }
-      ]
+      ],
+      "description": "Initiate a Stripe Checkout payment session.",
+      "locale_description": {
+        "fr_FR": "Initier une session de paiement Stripe Checkout."
+      }
     },
     {
       "id": "set",
@@ -177,7 +229,11 @@
             "fr_FR": "ID du prix"
           },
           "type": "String",
-          "bindable": true
+          "bindable": true,
+          "description": "Stripe price ID of the product.",
+          "locale_description": {
+            "fr_FR": "ID de prix Stripe du produit."
+          }
         },
         {
           "id": "quantity",
@@ -187,9 +243,17 @@
           },
           "type": "Integer",
           "bindable": true,
-          "value": 1
+          "value": 1,
+          "description": "Quantity of the product.",
+          "locale_description": {
+            "fr_FR": "Quantité du produit."
+          }
         }
-      ]
+      ],
+      "description": "Set a product in the cart with a specific price and quantity.",
+      "locale_description": {
+        "fr_FR": "Définir un produit dans le panier avec un prix et une quantité spécifiques."
+      }
     },
     {
       "id": "increment",
@@ -205,7 +269,11 @@
             "fr_FR": "ID du prix"
           },
           "type": "String",
-          "bindable": true
+          "bindable": true,
+          "description": "Stripe price ID of the product to increment.",
+          "locale_description": {
+            "fr_FR": "ID de prix Stripe du produit à incrémenter."
+          }
         },
         {
           "id": "quantity",
@@ -215,9 +283,17 @@
           },
           "type": "Integer",
           "bindable": true,
-          "value": 1
+          "value": 1,
+          "description": "Amount to add to the current quantity.",
+          "locale_description": {
+            "fr_FR": "Quantité à ajouter à la quantité actuelle."
+          }
         }
-      ]
+      ],
+      "description": "Increase the quantity of a product in the cart.",
+      "locale_description": {
+        "fr_FR": "Augmenter la quantité d'un produit dans le panier."
+      }
     },
     {
       "id": "decrement",
@@ -233,7 +309,11 @@
             "fr_FR": "ID du prix"
           },
           "type": "String",
-          "bindable": true
+          "bindable": true,
+          "description": "Stripe price ID of the product to decrement.",
+          "locale_description": {
+            "fr_FR": "ID de prix Stripe du produit à décrémenter."
+          }
         },
         {
           "id": "quantity",
@@ -243,15 +323,27 @@
           },
           "type": "Integer",
           "bindable": true,
-          "value": 1
+          "value": 1,
+          "description": "Amount to subtract from the current quantity.",
+          "locale_description": {
+            "fr_FR": "Quantité à soustraire de la quantité actuelle."
+          }
         }
-      ]
+      ],
+      "description": "Decrease the quantity of a product in the cart.",
+      "locale_description": {
+        "fr_FR": "Diminuer la quantité d'un produit dans le panier."
+      }
     },
     {
       "id": "removeAll",
       "name": "Remove all products",
       "locale_name": {
         "fr_FR": "Retirer tous les produits"
+      },
+      "description": "Remove all products from the cart.",
+      "locale_description": {
+        "fr_FR": "Retirer tous les produits du panier."
       }
     },
     {
@@ -268,12 +360,19 @@
             "fr_FR": "ID d'un client existant"
           },
           "type": "String",
-          "bindable": true
+          "bindable": true,
+          "description": "Stripe customer ID for the portal session.",
+          "locale_description": {
+            "fr_FR": "ID client Stripe pour la session du portail."
+          }
         }
-      ]
+      ],
+      "description": "Open the Stripe Customer Portal for subscription management.",
+      "locale_description": {
+        "fr_FR": "Ouvrir le portail client Stripe pour la gestion des abonnements."
+      }
     }
   ],
-
   "queryable": {
     "prices": [
       {
@@ -287,6 +386,26 @@
     "customer": {
       "id": "",
       "email": ""
+    },
+    "__desc_prices": {
+      "name": "Cart prices",
+      "locale_name": {
+        "fr_FR": "Prix du panier"
+      },
+      "description": "Current cart contents with product prices and quantities.",
+      "locale_description": {
+        "fr_FR": "Contenu actuel du panier avec les prix et quantités des produits."
+      }
+    },
+    "__desc_customer": {
+      "name": "Customer",
+      "locale_name": {
+        "fr_FR": "Client"
+      },
+      "description": "Stripe customer identifier for the current session.",
+      "locale_description": {
+        "fr_FR": "Identifiant client Stripe pour la session en cours."
+      }
     }
   }
 }
