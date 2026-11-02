@@ -1,7 +1,9 @@
+const kitPreset = require('pandasuite-bridge-react/tailwind.config');
+
 module.exports = {
-  presets: [
-    require('pandasuite-bridge-react/tailwind.config')
-  ],
+  presets: [kitPreset],
+  // Tailwind 2 purges from `purge`; the kit's preset lists its paths under `content`
+  purge: kitPreset.content,
   plugins: [
     require('@tailwindcss/forms')({
       strategy: 'class',

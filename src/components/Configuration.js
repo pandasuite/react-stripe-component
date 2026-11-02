@@ -59,7 +59,8 @@ function Configuration(props) {
 
   return (
     <>
-      <Button className="my-5" loading={state.loading} onClick={doRequest}>
+      {/* the kit's Button no longer disables itself while loading (since 2.5.0) */}
+      <Button className="my-5" loading={state.loading} disabled={state.loading} onClick={doRequest}>
         {intl.formatMessage({ id: 'request.button.title' })}
       </Button>
       {state.error && (
