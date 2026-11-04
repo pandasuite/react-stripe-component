@@ -25,10 +25,10 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "rm -f ./pandasuite-component.zip && craco build && cd build && zip -r -X '../pandasuite-component.zip' *",
+    "build": "rm -f ./pandasuite-component.zip ./react-stripe-component-v*.zip && craco build && cd build && zip -r -X \"../react-stripe-component-v$npm_package_version.zip\" *",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "release": "yarn build && release-it --no-npm.publish"
+    "release": "release-it --no-npm.publish"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -61,10 +61,13 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   },
   "release-it": {
+    "hooks": {
+      "after:bump": "yarn build"
+    },
     "github": {
       "release": true,
       "assets": [
-        "pandasuite-component.zip"
+        "react-stripe-component-v*.zip"
       ]
     }
   }
